@@ -1,0 +1,12 @@
+﻿@{
+    ViewData["Title"] = "Hello People";
+}
+
+@model List<string>
+
+<p>@Model</p>
+
+@foreach (var item in Model)
+{
+    <p>@item</p>
+}

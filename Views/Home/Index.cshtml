@@ -1,0 +1,44 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model Videogame
+
+<div class="jumbotron">
+    <h1>Videogames!</h1>
+</div>
+
+<table class="table">
+    <tr>
+        <th>Title</th>
+        <th>Year</th>
+        <th>Genre</th>
+        <th>Studio</th>
+        <th>Edit?</th>
+    </tr>
+    @foreach (var game in ViewBag.Games)
+    {
+        <tr>
+            <td>@game.title</td>
+            <td>@game.year</td>
+            <td>@game.genre</td>
+            <td>@game.studio</td>
+            <td><a href="/edit/@game.VideogameId" class="btn btn-xs btn-info">edit</a></td>
+        </tr>
+    }
+</table>
+
+<form action="/add" method="POST">
+    <span asp-validation-for="title"></span>
+    <label asp-for="title"></label>
+    <input asp-for="title" class="form-control"> 
+    <span asp-validation-for="year"></span>
+    <label asp-for="year"></label>
+    <input asp-for="year" class="form-control">
+    <span asp-validation-for="genre"></span>
+    <label asp-for="genre"></label>
+    <input asp-for="genre" class="form-control">
+    <span asp-validation-for="studio"></span>
+    <label asp-for="studio"></label>
+    <input asp-for="studio" class="form-control">
+    <input value="Add Game" type="submit">
+</form>

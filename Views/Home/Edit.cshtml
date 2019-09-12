@@ -1,0 +1,24 @@
+@{
+    ViewData["Title"] = "Edit Page";
+}
+@model Videogame
+
+<div class="jumbotron">
+    <h1>Videogames!</h1>
+</div>
+
+<form action="/update/@Model.VideogameId" method="POST">
+    <span asp-validation-for="title"></span>
+    <label asp-for="title"></label>
+    <input asp-for="title" class="form-control"> 
+    <span asp-validation-for="year"></span>
+    <label asp-for="year"></label>
+    <input asp-for="year" class="form-control">
+    <span asp-validation-for="genre"></span>
+    <label asp-for="genre"></label>
+    <input asp-for="genre" class="form-control">
+    <span asp-validation-for="studio"></span>
+    <label asp-for="studio"></label>
+    <input asp-for="studio" class="form-control">
+    <input value="Edit Game" type="submit">
+</form>
